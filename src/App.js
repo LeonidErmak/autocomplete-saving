@@ -14,10 +14,10 @@ function App() {
         const patternUserName = 'HS9xKdGnLbdPCZFRJ2ekrDxGeu8K8kLPXSyysvexjMzi';
         const patternPassWord = 'UEdbt9pVVbgT1EqqQGzhbUPa86pwDxBsHL1oPZ6d4E8R6PS5u3TTxE5dgsYqLFmNsEDodk1f9TKX1aAjKiypcxy';
 
-        setUserNameReal(`${ form.username }${ patternUserName }`);
-        setPasswordReal(`${ form.password }${ patternPassWord }`)
+        form.username && setUserNameReal(`${ form.username }:${ patternUserName }`);
+        form.password && setPasswordReal(`${ form.password }:${ patternPassWord }`);
 
-    },[form])
+    },[form.username, form.password])
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -34,6 +34,9 @@ function App() {
 
     return (
         <div className="App">
+            <div className='padding-20-20-0'>
+                {'Tested in Google Chrome browser'}
+            </div>
             <form id='loginVisible' autoComplete='off'>
                 <div className='padding-20-20-0'>
                     <label className='displayBlock padding-5' htmlFor="username">Username:</label>
